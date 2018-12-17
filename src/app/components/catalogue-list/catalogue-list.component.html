@@ -1,22 +1,12 @@
-<div class="row">
+<div style="position: relative;">
   <ul>
-    <li
-      *ngFor="let item of catalogue"
-      class="col-lg-3 col-md-4 col-xs-6 thumb"
-      style="margin-bottom: 8%"
-    >
-      <div class="good">
-        <div class="img-wrapper">
-          <div class="info-wrapper">
-            <img class="image" src="{{item.linkToImage}}" alt="{{item.name}}" />
-          </div>
-        </div>
-        <div class="text-center container">
-          <span class=" font-weight-bold md-4">
-            {{ item.id }}. <span>{{ item.name }}</span>
-          </span>
-        </div>
-      </div>
+    <li *ngFor="let item of catalogue" @fade>
+      <app-item [item]=item appDraggable (dragged)="onDragged($event,item) " (customDragStart)="dragStart()">
+      </app-item>
     </li>
   </ul>
+</div>
+
+<div class="gift" *ngIf="isDragged" @move>
+  <i class="fa fa-gift fa-5x"></i>
 </div>

@@ -1,28 +1,15 @@
-/* body{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 15px;
-    line-height: 1.5;
-    font: 15px/1.5 Arial, Helvetica, sans-serif;
-    background-color: #f4f4f4;
-}
+/* color:#0891d7 */
 *{
     margin: 0%;
     padding: 0%;
+    box-sizing: border-box;
 }
 
-.container{
-    width: 80%;
-    margin: auto;
-    overflow: hidden;
+body{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    background-color: #272627;
+    color: #ececec;
+    font-family: 'Roboto', sans-serif;
 }
-
-footer{
-    padding:20px;
-    margin-top:20px;
-    color:#ffffff;
-    background-color:#e8491d;
-    text-align: center;
-  } */
-
-@import "~bootstrap/dist/css/bootstrap.css";
-@import "~font-awesome/css/font-awesome.css";

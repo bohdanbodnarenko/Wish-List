@@ -1,3 +1,18 @@
-<p>
-  item works!
-</p>
+<!-- <img class="image" src="{{item.linkToImage}}" alt="{{item.name}}" /> -->
+<!-- <span class=" font-weight-bold md-4">
+  {{ item.id }}. <span>{{ item.name }}</span>
+</span> -->
+
+
+<div class="container" >
+  <div class="card" >
+    <div class="front">
+      <img src="{{item.linkToImage}}" alt="{{item.name}}">
+      <span class="name">{{item.name}}</span>
+    </div>
+    <div class="back" >
+      <img src="{{item.linkToImage}}"  alt="{{item.name}}" >
+      <fa (click)="addToList(item)" [name]="item.isInList ? 'check fa-10x' : 'plus'" size='4' [style.color] = "item.isInList ? '#08d75e':'#0891d7'"></fa>
+    </div>
+  </div>
+</div>

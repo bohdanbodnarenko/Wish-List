@@ -1,0 +1,43 @@
+input{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color:#ececec;
+    height: 3vh;
+    width: 18vw;
+    border-bottom: #ececec 1px solid;
+    padding-left: 6%;
+}
+
+input:focus{
+    background: white;
+    color: #343334;
+    font-weight: bold;
+
+}
+
+.main-container{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    transform: translate(-50%,0%);
+    /* position: relative; */
+}
+
+ul{
+    align-self: stretch;
+    list-style: none;
+}
+
+li{
+    background: white;
+    color: #343334;
+    border-bottom: #343334 .5px solid;
+    padding: 0 3%;
+}
+
+li  fa{
+    float: right;
+    cursor: pointer;
+}
+

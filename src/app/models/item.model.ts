@@ -2,5 +2,6 @@ export interface Item {
     id?:number,
     name:string,
     linkToImage:string,
-    isInList:boolean
+    isInList:boolean, 
+    count:number,
 }

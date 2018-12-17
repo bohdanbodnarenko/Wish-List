@@ -1,4 +1,4 @@
 <app-navbar></app-navbar>
-<div class="main">
-  <router-outlet></router-outlet>
+<div  class="main" [@routeAnimation]='getDepth(myOutlet)'>
+  <router-outlet #myOutlet='outlet' ></router-outlet>
 </div>

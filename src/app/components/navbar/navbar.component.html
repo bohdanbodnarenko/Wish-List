@@ -1,4 +1,4 @@
-<nav class="navbar navbar-dark bg-dark fixed-top">
+<!-- <nav class="navbar navbar-dark bg-dark fixed-top">
   <a class="navbar-brand" href="/">Wishes List App</a>
   <div class="navbar-expand mr-auto">
     <div class="navbar-nav navbar-expand ml-auto">
@@ -12,6 +12,21 @@
     </div>
   </div>
   </div>
-</nav>
+</nav> -->
 
+<header>
+  <div class="logo">
+    Wish List
+  </div>
+  <div class="search">
+    <app-search>
+    </app-search>
+  </div>
+  <div>
+    <nav>
+      <a [routerLink]="['/catalogue-list']">Catalogue</a>
+      <a [routerLink]="['/wishes-list']">Wishes</a>
+    </nav>
+  </div>
 
+</header>

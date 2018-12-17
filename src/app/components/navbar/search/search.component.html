@@ -1,0 +1,13 @@
+<div class="main-container">
+<input  #searchInput (input)="find(searchInput.value)" placeholder="Search games" />
+  <div *ngIf="searchInput.value" class="results-wrapper">
+    <ul>
+      <li *ngFor="let item of filteredItems" @fade>
+        <div>
+          <span>{{ item.name }}</span>
+          <fa (click)="addToList(item)" [name]="item.isInList ? 'check fa-10x' : 'plus'" size='1' [style.color] = "item.isInList ? '#08d75e':'#0891d7'"></fa>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

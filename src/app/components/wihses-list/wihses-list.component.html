@@ -1,0 +1,30 @@
+<div class="maincointainer" *ngIf="wishList.length>0; else noWish">
+    <ul>
+        <li class="item" *ngFor="let wish of wishList" @wish>
+            <div class="item-wrapper">
+                <img src="{{wish.linkToImage}}" alt="wish.name">
+                <span class="name">
+                    {{wish.name}}
+                </span>
+                <div class="count-wrapper">
+                    <fa name='minus' style="cursor:pointer" (click)="substract(wish)"></fa>
+                    <input class="count-input" type="text" value='{{wish.count}}' inputmode="numeric"  (input)="setCount(wish,$event.target.value)" >
+                    <fa name='plus' style="cursor:pointer" (click)="add(wish)"></fa>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+
+<ng-template #noWish>
+    <div style="text-align: center">
+        <span>
+            Ooops... It's looks like you haven't any wish! Please go to the catalogue and choose something :)
+        </span>
+    </div>
+    <div style="text-align: center">
+        <a [routerLink]="['/catalogue-list']">Catalogue</a>
+    </div>
+
+</ng-template>
