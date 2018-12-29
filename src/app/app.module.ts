@@ -15,6 +15,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DraggableDirective } from './components/draggable/draggable.directive';
 import { SearchComponent } from './components/navbar/search/search.component';
 import { FormsModule } from '@angular/forms';
+import { MainNavComponent } from './components/main-nav/main-nav.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
 
 
 @NgModule({
@@ -25,7 +28,8 @@ import { FormsModule } from '@angular/forms';
     WihsesListComponent,
     CatalogueListComponent,
     DraggableDirective,
-    SearchComponent
+    SearchComponent,
+    MainNavComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
@@ -34,7 +38,13 @@ import { FormsModule } from '@angular/forms';
     NgxWebstorageModule.forRoot(),
     BrowserAnimationsModule,
     Angular2FontawesomeModule,
-    FormsModule
+    FormsModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule
   ],
   providers: [CatalogueService],
   bootstrap: [AppComponent],

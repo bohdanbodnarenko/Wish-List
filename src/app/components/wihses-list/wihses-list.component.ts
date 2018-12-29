@@ -11,7 +11,7 @@ import { trigger, transition, style, animate } from '@angular/animations';
     trigger('wish',[
       transition('void <=> *', [
         style({transform:'translateX(-90px)'}),
-        animate(300)
+        animate(150)
       ])
     ])
   ]
@@ -21,11 +21,11 @@ export class WihsesListComponent implements OnInit {
 
   constructor(private catalogueService: CatalogueService) {}
 
-  //i need help
   ngOnInit() {
-    this.catalogueService.getWishList().subscribe(list => {
-      this.wishList = list;
-    });
+    this.wishList = this.catalogueService.getWishList();
+    this.catalogueService.listChange.subscribe(list=>{
+      this.wishList = list.filter(el=>el.isInList)
+    })
   }
 
   add(item: Item) {

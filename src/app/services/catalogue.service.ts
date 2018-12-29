@@ -1,11 +1,12 @@
-import { Injectable } from "@angular/core";
+import { Injectable, EventEmitter } from "@angular/core";
 import { Item } from "../models/item.model";
-import { of, Observable } from "rxjs";
+import { of, Observable, Subject } from "rxjs";
 import { LocalStorageService } from "ngx-webstorage";
 @Injectable({
   providedIn: "root"
 })
 export class CatalogueService {
+  private itemSubject = new Subject<Item[]>();
   private itemList: Item[] = [
     {
       id: 1,
@@ -129,6 +130,7 @@ export class CatalogueService {
     }
   ];
   private wishList: Item[] = [];
+  public listChange = new EventEmitter<Item[]>(); 
 
   constructor(private localSt: LocalStorageService) {
     if (!JSON.parse(this.localSt.retrieve("catalogue"))) {
@@ -139,14 +141,14 @@ export class CatalogueService {
     if (JSON.parse(this.localSt.retrieve("wishes"))) {
       this.wishList = JSON.parse(this.localSt.retrieve("wishes"));
     } else {
-      of(this.itemList.filter(item => item.isInList)).subscribe(
-        list => (this.wishList = list)
-      );
+      this.itemList.filter(item => item.isInList);
     }
+    this.itemSubject.next(this.itemList);
   }
 
-  public getItems(): Observable<Item[]> {
-    return of(this.itemList);
+  public getItems() {
+    return this.itemList;
+    // return this.itemSubject
   }
 
   public addItem(item: Item): void {
@@ -163,10 +165,11 @@ export class CatalogueService {
   }
 
   public updateItem(item: Item) {
-    this.itemList[item.id-1] = item;
+    this.itemList[item.id - 1] = item;
     this.wishList = this.itemList.filter(item => item.isInList);
     this.addToLocalStWishes();
     this.addToLocalStCatalogue();
+    this.listChange.emit(this.itemList);
   }
 
   public addToWishList(item: Item) {
@@ -179,12 +182,9 @@ export class CatalogueService {
     this.updateItem(item);
   }
 
-  public getWishList(): Observable<Item[]> {
-    return of(JSON.parse(this.localSt.retrieve("wishes")));
+  public getWishList(): Item[] {
+    return JSON.parse(this.localSt.retrieve("wishes"));
   }
 
-  public deleteFromWishes(item:Item){
-    
-  }
-
+  public deleteFromWishes(item: Item) {}
 }

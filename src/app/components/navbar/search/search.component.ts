@@ -25,9 +25,7 @@ export class SearchComponent implements OnInit {
   filteredItems = [];
 
   ngOnInit() {
-    this.catalogueService.getItems().subscribe(list => {
-      this.allItems = list;
-    });
+    this.allItems = this.catalogueService.getItems();
   }
 
   find(criteria: string) {

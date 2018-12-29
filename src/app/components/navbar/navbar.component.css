@@ -44,3 +44,8 @@ a:active{
 .search{
     align-self: stretch;
 }
+
+.active{
+    color: #fff;
+    font-size:1.3em
+}

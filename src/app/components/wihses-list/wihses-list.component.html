@@ -1,7 +1,7 @@
 <div class="maincointainer" *ngIf="wishList.length>0; else noWish">
     <ul>
-        <li class="item" *ngFor="let wish of wishList" @wish>
-            <div class="item-wrapper">
+        <li class="item" *ngFor="let wish of wishList">
+            <div class="item-wrapper" @wish>
                 <img src="{{wish.linkToImage}}" alt="wish.name">
                 <span class="name">
                     {{wish.name}}

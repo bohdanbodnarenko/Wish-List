@@ -48,7 +48,8 @@ export class CatalogueListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.catalogueService.getItems().subscribe(catalogue => {
+    this.catalogue = this.catalogueService.getItems();
+    this.catalogueService.listChange.subscribe(catalogue => {
       this.catalogue = catalogue;
     });
   }
