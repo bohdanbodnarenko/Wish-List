@@ -27,6 +27,10 @@
     transform: rotateY(180deg);
     box-shadow:20px
   }
+
+  .container:hover .name{
+    color: transparent;
+  }
   
    .front{
     position: relative;
